@@ -1,0 +1,227 @@
+
+<style>
+  .container { padding: 1rem 0; font-family: var(--font-sans); }
+  .header-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; border: 0.5px solid var(--color-border-tertiary); }
+  .candidate-row { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 44px; height: 44px; border-radius: 50%; background: #EEEDFE; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px; color: #3C3489; flex-shrink: 0; }
+  .section { margin-bottom: 1.5rem; }
+  .section-label { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; padding: 0 4px; }
+  .phase-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; margin-bottom: 10px; }
+  .phase-header { display: flex; align-items: center; gap: 10px; padding: 0.75rem 1rem; cursor: pointer; user-select: none; }
+  .phase-header:hover { background: var(--color-background-secondary); }
+  .phase-num { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); flex: 1; }
+  .phase-time { font-size: 12px; color: var(--color-text-secondary); }
+  .arrow { font-size: 12px; color: var(--color-text-secondary); transition: transform 0.2s; }
+  .arrow.open { transform: rotate(90deg); }
+  .phase-body { display: none; padding: 0 1rem 1rem; border-top: 0.5px solid var(--color-border-tertiary); }
+  .phase-body.open { display: block; }
+  .question-item { padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .question-item:last-child { border-bottom: none; }
+  .q-text { font-size: 14px; color: var(--color-text-primary); margin-bottom: 4px; }
+  .q-why { font-size: 12px; color: var(--color-text-secondary); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; margin-bottom: 6px; }
+  .b-pontualidade { background: #E6F1FB; color: #0C447C; }
+  .b-compromisso { background: #EEEDFE; color: #3C3489; }
+  .b-agilidade { background: #EAF3DE; color: #27500A; }
+  .b-critico { background: #FAECE7; color: #712B13; }
+  .b-geral { background: #F1EFE8; color: #444441; }
+  .tip-box { background: var(--color-background-secondary); border-left: 3px solid #7F77DD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 12px; margin-top: 10px; font-size: 13px; color: var(--color-text-secondary); }
+  .scorecard { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.5rem; }
+  .score-item { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+  .score-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .stars { font-size: 16px; letter-spacing: 2px; }
+  .result-btn { width: 100%; padding: 10px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); font-size: 14px; color: var(--color-text-primary); cursor: pointer; margin-top: 1rem; }
+  .result-btn:hover { background: var(--color-background-secondary); }
+</style>
+
+<div class="container">
+  <h2 class="sr-only">Roteiro de entrevista para vaga no Pastel da Camila</h2>
+
+  <div class="header-card">
+    <div class="candidate-row">
+      <div class="avatar">LC</div>
+      <div>
+        <p style="font-weight:500; font-size:15px; margin:0; color:var(--color-text-primary);">Luciana Carolliny de Jesus Lima</p>
+        <p style="font-size:13px; color:var(--color-text-secondary); margin:0;">21 anos · Exp: atendimento, caixa, estoque, Pizza Hut (3 anos)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Fases da entrevista</div>
+
+    <!-- FASE 1 -->
+    <div class="phase-card">
+      <div class="phase-header" onclick="toggle('f1')">
+        <div class="phase-num" style="background:#E6F1FB; color:#0C447C;">1</div>
+        <span class="phase-title">Boas-vindas e quebra-gelo</span>
+        <span class="phase-time">3 min</span>
+        <span class="arrow" id="arr-f1">▶</span>
+      </div>
+      <div class="phase-body" id="f1">
+        <div class="tip-box">Deixe a candidata confortável. Sorria, apresente-se, explique como vai funcionar a conversa. Isso reduz a tensão e faz a pessoa ser mais honesta nas respostas.</div>
+        <div class="question-item">
+          <div class="badge b-geral">quebra-gelo</div>
+          <div class="q-text">"Luciana, me conta um pouco de você — o que você gosta de fazer quando não está trabalhando?"</div>
+          <div class="q-why">Descontrai e mostra personalidade, energia e comunicação.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-geral">contexto</div>
+          <div class="q-text">"Como você ficou sabendo da nossa vaga?"</div>
+          <div class="q-why">Mede interesse genuíno pela empresa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase-card">
+      <div class="phase-header" onclick="toggle('f2')">
+        <div class="phase-num" style="background:#EEEDFE; color:#3C3489;">2</div>
+        <span class="phase-title">Histórico e experiência</span>
+        <span class="phase-time">7 min</span>
+        <span class="arrow" id="arr-f2">▶</span>
+      </div>
+      <div class="phase-body" id="f2">
+        <div class="tip-box">Técnica STAR (Situação, Tarefa, Ação, Resultado) — peça exemplos reais, não opiniões. "Você é pontual?" não revela nada. "Me conta uma vez que você chegou atrasada" revela tudo.</div>
+        <div class="question-item">
+          <div class="badge b-compromisso">compromisso</div>
+          <div class="q-text">"Me conta por que você saiu do Pizza Hut depois de quase 4 anos?"</div>
+          <div class="q-why">Saída recente (março/26). Entender o motivo real — se foi demitida, pediu demissão, ou conflito — é essencial.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-pontualidade">pontualidade</div>
+          <div class="q-text">"No Pizza Hut, como era sua rotina para chegar no horário? Você usava transporte público?"</div>
+          <div class="q-why">Explora logística real. Quem mora em Osasco e trabalha em SP pode ter imprevistos sérios de deslocamento.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-agilidade">agilidade</div>
+          <div class="q-text">"Me descreve um dia movimentado no Pizza Hut — como você se organizava quando chegava muita gente ao mesmo tempo?"</div>
+          <div class="q-why">Mede capacidade de manter ritmo e organização sob pressão real.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase-card">
+      <div class="phase-header" onclick="toggle('f3')">
+        <div class="phase-num" style="background:#EAF3DE; color:#27500A;">3</div>
+        <span class="phase-title">Perguntas situacionais (cenários reais)</span>
+        <span class="phase-time">8 min</span>
+        <span class="arrow" id="arr-f3">▶</span>
+      </div>
+      <div class="phase-body" id="f3">
+        <div class="tip-box">Técnica usada pelo McDonald's: apresente situações do dia a dia do cargo e peça como a pessoa reagiria. Respostas vagas = sinal de alerta.</div>
+        <div class="question-item">
+          <div class="badge b-pontualidade">pontualidade</div>
+          <div class="q-text">"Suponha que você acorda e percebe que está 20 minutos atrasada. O que você faz?"</div>
+          <div class="q-why">Revela senso de responsabilidade e se a pessoa comunica proativamente ou some.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-critico">olho crítico</div>
+          <div class="q-text">"Você está atendendo e percebe que o pastel que vai entregar está com aparência diferente do normal — um pouco mais escuro, com recheio vazando. O que você faz?"</div>
+          <div class="q-why">Testa atenção à qualidade, coragem para agir mesmo com fila.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-agilidade">agilidade</div>
+          <div class="q-text">"A fila aumentou muito, a fritadeira está cheia e o cliente da frente está impaciente. Como você lida com isso?"</div>
+          <div class="q-why">Simula a realidade da operação. Mede controle emocional e foco no cliente.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-compromisso">compromisso</div>
+          <div class="q-text">"Se a Camila precisasse de você num domingo ou feriado inesperadamente, como você encararia isso?"</div>
+          <div class="q-why">Mede flexibilidade e disposição real — não a resposta que ela acha que você quer ouvir.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="phase-card">
+      <div class="phase-header" onclick="toggle('f4')">
+        <div class="phase-num" style="background:#FAECE7; color:#712B13;">4</div>
+        <span class="phase-title">Valores e fit cultural</span>
+        <span class="phase-time">5 min</span>
+        <span class="arrow" id="arr-f4">▶</span>
+      </div>
+      <div class="phase-body" id="f4">
+        <div class="tip-box">Empresas como Chick-fil-A e Starbucks contratam por valores, não só habilidade. Uma pessoa com atitude certa aprende rápido. Uma com atitude errada cria problemas mesmo sendo habilidosa.</div>
+        <div class="question-item">
+          <div class="badge b-geral">valores</div>
+          <div class="q-text">"O que significa pra você fazer um bom trabalho num dia ruim?"</div>
+          <div class="q-why">Profissionalismo além do humor. Revela maturidade.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-compromisso">compromisso</div>
+          <div class="q-text">"O que te motivaria a ficar aqui por bastante tempo, não só alguns meses?"</div>
+          <div class="q-why">Detecta se ela está só "passando" ou se quer crescer junto com o negócio.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-critico">olho crítico</div>
+          <div class="q-text">"Se você visse uma colega fazendo algo errado sem perceber, você diria alguma coisa? Como faria isso?"</div>
+          <div class="q-why">Testa responsabilidade coletiva e comunicação sem conflito.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 5 -->
+    <div class="phase-card">
+      <div class="phase-header" onclick="toggle('f5')">
+        <div class="phase-num" style="background:#F1EFE8; color:#444441;">5</div>
+        <span class="phase-title">Espaço para ela perguntar + encerramento</span>
+        <span class="phase-time">3 min</span>
+        <span class="arrow" id="arr-f5">▶</span>
+      </div>
+      <div class="phase-body" id="f5">
+        <div class="tip-box">Candidatos que perguntam sobre horários, expectativas e funcionamento do negócio demonstram interesse real. Quem não pergunta nada pode estar só "cumprindo tabela".</div>
+        <div class="question-item">
+          <div class="badge b-geral">encerramento</div>
+          <div class="q-text">"Você tem alguma dúvida sobre a vaga, os horários ou como a gente trabalha aqui?"</div>
+          <div class="q-why">Abre espaço — e revela o nível de interesse dela.</div>
+        </div>
+        <div class="question-item">
+          <div class="badge b-geral">encerramento</div>
+          <div class="q-text">"Se você for contratada, qual seria seu maior desafio no início?"</div>
+          <div class="q-why">Autoconsciência é rara e valiosa. Quem sabe seus pontos fracos os controla melhor.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="section">
+    <div class="section-label">Scorecard — anote após a entrevista</div>
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:1rem 1.25rem;">
+      <div class="scorecard">
+        <div class="score-item">
+          <div class="score-label">Pontualidade / comprometimento</div>
+          <div class="stars">☆☆☆☆☆</div>
+        </div>
+        <div class="score-item">
+          <div class="score-label">Agilidade e ritmo</div>
+          <div class="stars">☆☆☆☆☆</div>
+        </div>
+        <div class="score-item">
+          <div class="score-label">Olho crítico / qualidade</div>
+          <div class="stars">☆☆☆☆☆</div>
+        </div>
+        <div class="score-item">
+          <div class="score-label">Comunicação e atitude</div>
+          <div class="stars">☆☆☆☆☆</div>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:13px; color:var(--color-text-secondary);">Imprima ou copie antes da entrevista para anotar durante.</div>
+    </div>
+    <button class="result-btn" onclick="sendPrompt('Me ajuda a interpretar as respostas da Luciana na entrevista — o que observar em cada resposta dela para saber se ela se encaixa?')">Me ajuda a interpretar as respostas dela ↗</button>
+  </div>
+</div>
+
+<script>
+function toggle(id) {
+  const body = document.getElementById(id);
+  const arr = document.getElementById('arr-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arr.classList.toggle('open', !isOpen);
+}
+toggle('f1');
+</script>
